@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRVUZ — Managed Detailing (Live in 757) & Multi-Service Ecosystem Hub</title>
+  <meta name="description" content="Book SRVUZ Detailing in Hampton Roads (fulfilled by Shine My Ride 757 — 4.9 rating from 307+ Google reviews) or join priority SMS & Email launch alerts for SRVUZ Home, Commercial, SRVUZ ONE, Academy, and Private Partner Onboarding." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://srvuz.com/#organization",
+        "name": "SRVUZ",
+        "url": "https://srvuz.com",
+        "slogan": "Life moves fast. We handle the rest.",
+        "description": "Accountable managed-services ecosystem spanning SRVUZ Detailing (automotive, marine, aviation, industrial equipment, commercial fleets, dealerships), SRVUZ Home, SRVUZ Commercial, SRVUZ Academy, and SRVUZ OS.",
+        "subOrganization": {
+          "@type": "AutoWash",
+          "name": "Shine My Ride 757",
+          "url": "https://www.smrdetailing.com",
+          "telephone": "+1-757-689-9821",
+          "areaServed": ["Virginia Beach, VA", "Chesapeake, VA", "Norfolk, VA", "Suffolk, VA", "Portsmouth, VA", "Hampton, VA", "Newport News, VA"],
+          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "307" }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://srvuz.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does SRVUZ managed mobile detailing work in Hampton Roads?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In Hampton Roads (757), SRVUZ Detailing is fulfilled by our flagship direct operating brand, Shine My Ride 757 (Veteran-owned, System X Partner, 4.9 rating from 307+ Google reviews). Standard maintenance washes book directly, while Platinum and System X ceramic coatings use 3-photo optical underwriting. Every job requires 4 arrival walkthrough photos and 5 completion QA photos (>=0.85 confidence floor)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is SRVUZ a public contractor directory or lead marketplace?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. SRVUZ is an accountable managed-service operator, never a public contractor directory or lead-selling marketplace. SRVUZ owns the quote, service standard, billing, and quality guarantee, fulfilling work through direct company crews or privately vetted independent partners." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg:#070C15; --navy:#101B2B; --card:rgba(16,27,43,0.88);
+      --blue:#1575D4; --glow:#75C9FF; --emerald:#10B981; --amber:#F5A623;
+      --text:#F5F7FB; --muted:#94A3B8; --border:rgba(255,255,255,0.11);
+      --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:radial-gradient(circle at 50% 0%,#15253F 0%,var(--bg) 68%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;line-height:1.5;min-height:100vh;padding-bottom:80px}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:60;background:rgba(7,12,21,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-bar{display:flex;align-items:center;justify-content:space-between;min-height:70px;gap:12px;flex-wrap:wrap;padding:8px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;letter-spacing:-0.03em}
+    .brand-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue),#0B4F9C);display:grid;place-items:center;font-weight:900;color:#FFF;border:1px solid rgba(117,201,255,0.45);position:relative;cursor:pointer}
+    .brand-mark.framed::after{content:"";position:absolute;inset:3px;border:1.5px solid var(--glow);border-radius:7px;pointer-events:none}
+    .nav-links{display:flex;gap:7px;flex-wrap:wrap}
+    .nav-pill{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text);padding:6px 11px;border-radius:999px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+    .nav-pill:hover{border-color:var(--glow)}
+    .dot-live{width:8px;height:8px;border-radius:50%;background:var(--emerald);box-shadow:0 0 8px var(--emerald)}
+    .dot-soon{width:8px;height:8px;border-radius:50%;background:var(--amber)}
+    .hero{padding:44px 0 28px;text-align:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(16,185,129,0.14);border:1px solid rgba(16,185,129,0.4);color:#6EE7B7;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em}
+    h1{font-size:clamp(30px,5vw,50px);font-weight:900;letter-spacing:-0.03em;margin:14px 0 10px}
+    .hero-sub{color:var(--muted);font-size:16px;max-width:780px;margin:0 auto 22px}
+    .zip-bar{max-width:560px;margin:0 auto;display:flex;gap:10px;background:var(--card);padding:8px;border-radius:16px;border:1px solid var(--border)}
+    .zip-bar input{flex:1;background:transparent;border:none;color:#FFF;padding:10px 14px;font-size:14px;outline:none;margin:0}
+    .zip-bar button{background:var(--blue);color:#FFF;border:none;padding:10px 18px;border-radius:11px;font-weight:800;font-size:13px;cursor:pointer}
+    .zip-feedback{margin-top:10px;font-size:13px;color:var(--glow);min-height:20px}
+    .section-head{display:flex;align-items:center;justify-content:space-between;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+    .section-head h2{font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px}
+    .badge-live{background:rgba(16,185,129,0.18);border:1px solid var(--emerald);color:#6EE7B7;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px}
+    .badge-soon{background:rgba(245,166,35,0.16);border:1px solid var(--amber);color:#FCD34D;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px}
+    .live-detailing-box{background:linear-gradient(145deg,rgba(16,27,43,0.95),rgba(10,32,46,0.88));border:1.5px solid rgba(16,185,129,0.45);border-radius:22px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,0.45)}
+    .spec-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+    .spec-tab{padding:8px 13px;border-radius:10px;border:1px solid var(--border);background:rgba(7,12,21,0.75);color:var(--muted);font-size:12px;font-weight:700;cursor:pointer}
+    .spec-tab.active{background:var(--blue);color:#FFF;border-color:var(--glow)}
+    .detail-grid{display:grid;grid-template-columns:1.25fr 0.95fr;gap:22px}
+    @media(max-width:880px){.detail-grid{grid-template-columns:1fr}}
+    .pkg-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    @media(max-width:580px){.pkg-cards{grid-template-columns:1fr}}
+    .pkg-card{background:rgba(7,12,21,0.75);border:1px solid var(--border);padding:13px;border-radius:13px;cursor:pointer}
+    .pkg-card.selected{border-color:var(--emerald);background:rgba(16,185,129,0.09)}
+    .pkg-card h4{font-size:14px;margin-bottom:4px;display:flex;justify-content:space-between}
+    .pkg-card p{font-size:11.5px;color:var(--muted)}
+    .tape-scrubber{margin-top:14px;padding:13px;border-radius:13px;background:rgba(7,12,21,0.85);border:1px solid var(--border)}
+    .tape-bar{height:48px;border-radius:9px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;font-weight:800;margin:8px 0;background:linear-gradient(90deg,#1E293B 0%,#0F172A 48%,#1D4ED8 48%,#1D4ED8 52%,#064E3B 52%,#047857 100%)}
+    .scrolly-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:start}
+    @media(max-width:900px){.scrolly-layout{grid-template-columns:1fr}}
+    .chapter-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px;margin-bottom:14px;cursor:pointer}
+    .chapter-card.active{border-color:var(--glow);box-shadow:0 8px 24px rgba(21,117,212,0.22)}
+    .chapter-card h3{font-size:17px;font-weight:800;margin:5px 0}
+    .chapter-card p{font-size:12.5px;color:var(--muted)}
+    .sticky-stage{position:sticky;top:90px;background:var(--navy);border:1.5px solid rgba(117,201,255,0.35);border-radius:20px;padding:22px;min-height:340px}
+    .soon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+    .branch-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .branch-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--blue))}
+    .branch-card h3{font-size:17.5px;font-weight:800;margin:8px 0 5px}
+    .branch-card p{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+    .btn-live{width:100%;padding:12px 15px;border-radius:11px;border:none;background:var(--emerald);color:#042F1E;font-weight:900;font-size:13.5px;cursor:pointer;margin-top:8px}
+    .btn-waitlist{width:100%;padding:11px 14px;border-radius:11px;background:rgba(21,117,212,0.22);border:1px solid var(--glow);color:#FFF;font-weight:800;font-size:12.5px;cursor:pointer}
+    .btn-waitlist:hover{background:var(--blue)}
+    input,select{width:100%;padding:9px 11px;border-radius:9px;background:rgba(7,12,21,0.9);border:1px solid rgba(255,255,255,0.15);color:#FFF;font-size:13px;margin-bottom:8px;outline:none}
+    label.field-lbl{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:3px}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(3,6,12,0.85);backdrop-filter:blur(10px);z-index:100;display:none;align-items:center;justify-content:center;padding:16px}
+    .modal-backdrop.open{display:flex}
+    .modal-card{background:var(--navy);border:1px solid rgba(117,201,255,0.4);border-radius:20px;max-width:560px;width:100%;padding:24px;max-height:92vh;overflow-y:auto}
+    .consent-check{display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:#CBD5E1;margin:5px 0;cursor:pointer}
+    .consent-check input{width:auto;margin-top:3px}
+    .receipt-box{display:none;margin-top:10px;padding:12px;border-radius:10px;background:rgba(16,185,129,0.15);border:1px solid var(--emerald);color:#D1FAE5;font-size:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-bar">
+      <div class="brand">
+        <div class="brand-mark" id="brandMark" onclick="toggleBrandLockup()">S</div>
+        <div>SRVUZ<span id="lockupLabel" style="display:block;font-size:9.5px;color:var(--muted);font-weight:600;">LOCKUP 01 · CORE S (TAP TO SWITCH)</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="#detailing-live" class="nav-pill"><span class="dot-live"></span> SRVUZ Detailing (LIVE 757)</a>
+        <a href="#ecosystem-scroll" class="nav-pill">Inside the Ecosystem</a>
+        <button class="nav-pill" onclick="openWaitlistModal('SRVUZ_ONE')"><span class="dot-soon"></span> Build Your Plan (Soon)</button>
+        <button class="nav-pill" onclick="openWaitlistModal('SRVUZ_HOME')"><span class="dot-soon"></span> SRVUZ Home (Soon)</button>
+        <button class="nav-pill" onclick="openWaitlistModal('SRVUZ_COMMERCIAL')"><span class="dot-soon"></span> Commercial (Soon)</button>
+        <button class="nav-pill" onclick="openWaitlistModal('NETWORK_PARTNER')"><span class="dot-soon"></span> Become a Partner (Waitlist)</button>
+        <a href="ai_proof_scaling_page.html" class="nav-pill"><span class="dot-soon"></span> Academy ($0–$697)</a>
+        <a href="srvuz_ai_consulting_hq.html" class="nav-pill">B2B SRVUZ OS ($4.5k DFY)</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <span class="eyebrow"><span class="dot-live"></span> SRVUZ Detailing Live in Hampton Roads (via Shine My Ride 757) · All Other Branches Accepting Priority Alerts</span>
+      <h1>Life moves fast. We handle the rest.</h1>
+      <p class="hero-sub">
+        Book <strong>SRVUZ Detailing</strong> in Hampton Roads right now (fulfilled by our flagship local operation, <strong>Shine My Ride 757</strong> — Veteran-owned · System X Partner · 4.9 rating from 307+ Google reviews) or lock in instant <strong>SMS Text & Email Launch Alerts</strong> for every upcoming SRVUZ branch.
+      </p>
+      <div class="zip-bar">
+        <input type="text" id="heroZip" maxlength="5" placeholder="Enter 5-digit ZIP code (e.g., 23451 Virginia Beach)..." />
+        <button onclick="evaluateHeroZip()">Check Live vs. Waitlist</button>
+      </div>
+      <div class="zip-feedback" id="heroZipFeedback"></div>
+    </section>
+
+    <div class="section-head" id="detailing-live">
+      <h2><span>01 · SRVUZ Detailing</span><span class="badge-live">● LIVE & BOOKABLE NOW (757)</span></h2>
+      <span style="font-size:12px;color:var(--muted);">Fulfilled in Hampton Roads by <strong>Shine My Ride 757</strong> (smrdetailing.com · Protected Local Cash Engine)</span>
+    </div>
+
+    <div class="live-detailing-box">
+      <div class="spec-tabs">
+        <button class="spec-tab active" onclick="selectSpec('AUTO',this)">1. Automotive Detailing (Live 757)</button>
+        <button class="spec-tab" onclick="selectSpec('MARINE',this)">2. Marine Vessels (Direct Crew)</button>
+        <button class="spec-tab" onclick="selectSpec('AVIATION',this)">3. Aviation / SF50 (Direct Crew)</button>
+        <button class="spec-tab" onclick="selectSpec('INDUSTRIAL',this)">4. Industrial Equipment (Direct Crew)</button>
+        <button class="spec-tab" onclick="selectSpec('FLEETS',this)">5. Commercial Fleets (Managed SLA)</button>
+        <button class="spec-tab" onclick="selectSpec('DEALERSHIPS',this)">6. Dealerships (Reconditioning)</button>
+      </div>
+
+      <div class="detail-grid">
+        <div>
+          <h3 id="specTitle" style="font-size:18px;font-weight:800;">Automotive Mobile Detailing & System X Ceramic (Hampton Roads)</h3>
+          <p style="font-size:12px;color:var(--muted);margin-top:3px;">
+            Live Square catalog floors (`PRICE_LOCK.md`). Silver & Gold bypass upfront photos; Platinum & System X Ceramic trigger 3-photo optical underwriting.
+          </p>
+          <div class="pkg-cards" id="autoPkgGrid">
+            <div class="pkg-card selected" onclick="selectAutoPkg('Silver Full Detail ($230–$350)',false,this)">
+              <h4><span>Silver Full Detail</span><span style="color:var(--emerald);">$230–$350</span></h4>
+              <p>Interior + Exterior reset. Skips upfront 3-photo requirement for instant slot request.</p>
+            </div>
+            <div class="pkg-card" onclick="selectAutoPkg('Gold Full Detail ($450–$675)',false,this)">
+              <h4><span>Gold Full Detail</span><span style="color:var(--emerald);">$450–$675</span></h4>
+              <p>Deep extraction, decontamination & high-gloss protection. Skips upfront photo gate.</p>
+            </div>
+            <div class="pkg-card" onclick="selectAutoPkg('Platinum Full / Paint Correction ($700–$1,000)',true,this)">
+              <h4><span>Platinum Full Detail</span><span style="color:var(--glow);">$700–$1,000</span></h4>
+              <p>Triggers Condition-Gated 3-Photo Optical Underwriting in direct sun or flashlight beam.</p>
+            </div>
+            <div class="pkg-card" onclick="selectAutoPkg('System X Ceramic ($1,400+)',true,this)">
+              <h4><span>System X Ceramic</span><span style="color:var(--glow);">$1,400+</span></h4>
+              <p>Requires 3 sunlit close-up photos + surface audit. Backed by the manufacturer warranty per System X terms.</p>
+            </div>
+          </div>
+
+          <div class="tape-scrubber">
+            <div style="display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;">
+              <span>3M Blue Painter's Tape Inspection</span>
+              <span id="tapeStatusLbl" style="color:var(--glow);">Mid Split View</span>
+            </div>
+            <div class="tape-bar" id="tapeVisualBar">
+              <span style="color:#FCA5A5;">LEFT: Tunnel-Wash Swirls</span>
+              <span style="background:#2563EB;padding:2px 6px;border-radius:4px;color:#FFF;">3M TAPE</span>
+              <span style="color:#6EE7B7;">RIGHT: System X 114° Beading</span>
+            </div>
+            <input type="range" min="10" max="90" value="50" oninput="updateTapeSplit(this.value)" style="margin:0;" />
+          </div>
+        </div>
+
+        <div style="background:rgba(7,12,21,0.86);padding:18px;border-radius:16px;border:1px solid var(--border);">
+          <h4 style="font-size:15px;font-weight:800;margin-bottom:4px;">Request Live 757 Detailing Slot</h4>
+          <p id="photoRuleNotice" style="font-size:11.5px;color:#6EE7B7;margin-bottom:8px;">✓ Standard Package Selected: Upfront 3-photo requirement bypassed.</p>
+          <form onsubmit="submitLiveDetailing(event)">
+            <label class="field-lbl">Full Name *</label><input type="text" id="d_name" required placeholder="First & Last Name" />
+            <label class="field-lbl">Mobile Phone *</label><input type="tel" id="d_phone" required placeholder="(757) 555-0199" />
+            <label class="field-lbl">Email Address *</label><input type="email" id="d_email" required placeholder="you@example.com" />
+            <label class="field-lbl">Vehicle / Vessel / Aircraft & Preferred Day *</label><input type="text" id="d_asset" required placeholder="e.g., 2024 Tahoe · Thursday AM" />
+            <div id="photoUploadBlock" style="display:none;margin-bottom:8px;padding:8px;border-radius:8px;border:1px dashed var(--glow);background:rgba(21,117,212,0.1);">
+              <small style="font-size:11px;color:#CBD5E1;">📸 <strong>3 Sunlit Close-Up Photos Required:</strong> Text 3 photos to <strong>757-689-9821</strong> on the next step.</small>
+            </div>
+            <label class="consent-check">
+              <input type="checkbox" id="d_HomeWaitlistHook" checked />
+              <span><strong>Also alert me by SMS/Email</strong> when <strong>SRVUZ Home</strong> (Pressure Washing & Exterior Care) and <strong>SRVUZ ONE</strong> unlock in my ZIP code.</span>
+            </label>
+            <button type="submit" class="btn-live">Route to Shine My Ride 757 Booking Desk →</button>
+          </form>
+          <div class="receipt-box" id="detailReceipt"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head" id="ecosystem-scroll">
+      <h2><span>02 · Inside the SRVUZ Ecosystem (Interactive Scrollytelling)</span></h2>
+      <span style="font-size:12px;color:var(--muted);">Tap any chapter on the left to inspect the live engine on the right.</span>
+    </div>
+
+    <div class="scrolly-layout">
+      <div>
+        <div class="chapter-card active" onclick="activateChapter(1,this)"><span class="badge-live">CHAPTER 01 · FRONT OFFICE</span><h3>SRVUR Intake & 3-Photo Underwriting</h3><p>Standard washes book fast; Platinum & System X Ceramic trigger 3-photo optical grading.</p></div>
+        <div class="chapter-card" onclick="activateChapter(2,this)"><span class="badge-live">CHAPTER 02 · SIX SPECIALIZATIONS</span><h3>SRVUZ Detailing (Anchored in 757 by Shine My Ride 757)</h3><p>Automotive, Marine, Aviation, Industrial Equipment, Commercial Fleets, and Dealerships.</p></div>
+        <div class="chapter-card" onclick="activateChapter(3,this)"><span class="badge-soon">CHAPTER 03 · PROPERTY EXPANSION</span><h3>SRVUZ Home, SRVUZ Commercial & SRVUZ ONE</h3><p>One trusted account for the vehicle and the property. Neighborhoods unlock only when 15+ waiting customers match with 2+ COI-verified partners.</p></div>
+        <div class="chapter-card" onclick="activateChapter(4,this)"><span class="badge-live">CHAPTER 04 · ZERO-UI OPERATING SYSTEM</span><h3>SRVUZ OS (4-Corner Arrival + 5-Photo Vision QA >= 0.85)</h3><p>Techs operate via SMS (OTW → HERE → 5 finish photos), stamping a token-gated Asset Passport (/asset/N17CX).</p></div>
+        <div class="chapter-card" onclick="activateChapter(5,this)"><span class="badge-soon">CHAPTER 05 · OPERATOR EDUCATION</span><h3>SRVUZ Academy & Detailing Domination ($0 → $27 → $97 → $697)</h3><p>Fixes the Two-Tech Margin Paradox with our Profit Leak Calculator, 70-page Book, Operator Toolkit, and Skool Accelerator (with 100% upgrade credit).</p></div>
+        <div class="chapter-card" onclick="activateChapter(6,this)"><span class="badge-soon">CHAPTER 06 · PRIVATE OVERFLOW NETWORK</span><h3>Direct Crews + The Private SRVUZ Network</h3><p>Never a public contractor directory. Overflow automotive jobs route privately via SELECT ... FOR UPDATE atomic locks at fixed payouts ($150 baseline).</p></div>
+      </div>
+
+      <div class="sticky-stage" id="scrollyStage">
+        <span class="badge-live" id="stageBadge">CHAPTER 01 TELEMETRY</span>
+        <h3 id="stageTitle" style="font-size:21px;font-weight:900;margin:10px 0 8px;">Sub-10s Triage &amp; 3-Photo Optical Underwriting</h3>
+        <p id="stageBody" style="font-size:13.5px;color:#CBD5E1;margin-bottom:16px;">
+          Standard maintenance washes bypass photo friction completely. Paint Correction and System X Ceramic trigger 3 sunlit close-up photos and hold dates in PENDING_DANIELLE_CONFIRMATION.
+        </p>
+        <div id="stageCodeBox" style="background:#070C15;border:1px solid var(--border);padding:14px;border-radius:12px;font-family:var(--mono);font-size:12px;color:#6EE7B7;white-space:pre-wrap;">[INBOUND SMS -&gt; 757-689-9821]
+Intent: SYSTEM_X_CERAMIC | Gate: REQUIRE_3_PHOTOS
+Booking State: PENDING_DANIELLE_CONFIRMATION</div>
+      </div>
+    </div>
+
+    <div class="section-head" id="coming-soon">
+      <h2><span>03 · Coming Soon Branches — Get Instant SMS &amp; Email Alerts</span><span class="badge-soon">● WAITLISTS OPEN</span></h2>
+      <span style="font-size:12px;color:var(--muted);">Join the priority alert list for any upcoming SRVUZ division below.</span>
+      <span id="clusterNote" style="display:block;font-size:12px;color:var(--muted);"></span>
+    </div>
+    <div class="soon-grid">
+      <div class="branch-card"><div><span class="badge-soon">COMING SOON · MULTI-SERVICE PLAN</span><h3>SRVUZ ONE</h3><p>One trusted account for the vehicle and the property.</p></div><button class="btn-waitlist" onclick="openWaitlistModal('SRVUZ_ONE')">🔔 Get SRVUZ ONE Text &amp; Email Alerts →</button></div>
+      <div class="branch-card"><div><span class="badge-soon">COMING SOON · CONTROLLED PILOT</span><h3>SRVUZ Home</h3><p>Pressure washing &amp; exterior care — unlocks by ZIP with COI-verified partners.</p></div><button class="btn-waitlist" onclick="openWaitlistModal('SRVUZ_HOME')">Join Home Waitlist →</button></div>
+      <div class="branch-card"><div><span class="badge-soon">COMING SOON</span><h3>SRVUZ Commercial</h3><p>Storefronts, lots and fleets on one managed schedule.</p></div><button class="btn-waitlist" onclick="openWaitlistModal('SRVUZ_COMMERCIAL')">Join Commercial Waitlist →</button></div>
+      <div class="branch-card"><div><span class="badge-soon">WAITLIST · NOT LAUNCHED</span><h3>Private SRVUZ Network</h3><p>Partner overflow — never a public contractor directory.</p></div><button class="btn-waitlist" onclick="openWaitlistModal('NETWORK_PARTNER')">Apply for Partner Waitlist →</button></div>
+      <div class="branch-card"><div><span class="badge-soon">COMING SOON</span><h3>SRVUZ Academy</h3><p>Detailing Domination: $0 → $27 → $97 → $697.</p></div><button class="btn-waitlist" onclick="openWaitlistModal('SRVUZ_ACADEMY')">Join Academy Waitlist →</button></div>
+      <div class="branch-card"><div><span class="badge-soon">COMING SOON</span><h3>SRVUZ OS · HIVE · Tint</h3><p>Zero-UI operations and window tint / PPF expansions.</p></div><button class="btn-waitlist" onclick="openWaitlistModal('SRVUZ_OS')">Join OS / Tint Waitlist →</button></div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 10px;">
+      <a href="ai_proof_scaling_page.html" class="btn-waitlist" style="width:auto;padding:10px 16px;text-decoration:none;">📊 Academy Profit Calculator →</a>
+      <a href="srvuz_ai_consulting_hq.html" class="btn-waitlist" style="width:auto;padding:10px 16px;text-decoration:none;">⚙️ B2B Consulting HQ ($4.5k DFY) →</a>
+    </div>
+
+    <footer style="margin:48px 0 24px;font-size:12px;color:var(--muted);text-align:center;">
+      © 2026 SRVUZ · Shine My Ride 757 · Veteran-owned · System X Partner · 757-689-9821<br/>
+      Accountable managed services — never a public contractor directory.
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="waitlistModal" onclick="if(event.target===this)closeWaitlistModal()">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="wlTitle">
+      <h3 id="wlTitle" style="font-size:18px;font-weight:900;margin-bottom:8px;">Join the waitlist</h3>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px;">Priority SMS Text &amp; Email launch alerts. No spam. Leave anytime.</p>
+      <form id="wlForm" onsubmit="submitWaitlist(event)">
+        <input type="hidden" id="wl_branch" />
+        <label class="field-lbl">Full Name *</label><input type="text" id="wl_name" required placeholder="First &amp; Last Name" />
+        <label class="field-lbl">ZIP Code *</label><input type="text" id="wl_zip" required pattern="\d{5}" maxlength="5" placeholder="23451" />
+        <label class="field-lbl">Mobile Phone *</label><input type="tel" id="wl_phone" required placeholder="(757) 555-0199" />
+        <label class="field-lbl">Email *</label><input type="email" id="wl_email" required placeholder="you@example.com" />
+        <label class="consent-check"><input type="checkbox" id="wl_sms" checked /><span>SMS Text alerts</span></label>
+        <label class="consent-check"><input type="checkbox" id="wl_emailopt" checked /><span>Email alerts</span></label>
+        <button type="submit" class="btn-live">Lock my priority spot →</button>
+      </form>
+      <div class="receipt-box" id="waitlistReceipt"></div>
+      <button type="button" onclick="closeWaitlistModal()" style="margin-top:12px;background:none;border:0;color:var(--muted);cursor:pointer;font-size:12px;">Close</button>
+    </div>
+  </div>
+
+<script>
+const HR_ZIPS = ["23320","23321","23322","23323","23324","23325","23451","23452","23453","23454","23455","23456","23457","23459","23460","23461","23462","23464","23502","23503","23504","23505","23507","23508","23509","23510","23511","23513","23517","23518","23521","23523","23601","23602","23603","23604","23605","23606","23607","23608","23651","23661","23662","23663","23664","23665","23666","23667","23668","23669","23690","23691","23692","23693","23696","23701","23702","23703","23704","23707","23708","23709"];
+const CHAPTER_DATA = {
+  1: { badge: 'CHAPTER 01 TELEMETRY', title: 'Sub-10s Triage & 3-Photo Optical Underwriting', body: 'Standard maintenance washes bypass photo friction completely. Paint Correction and System X Ceramic trigger 3 sunlit close-up photos and hold dates in PENDING_DANIELLE_CONFIRMATION.', code: '[INBOUND SMS -> 757-689-9821]\nIntent: SYSTEM_X_CERAMIC | Gate: REQUIRE_3_PHOTOS\nBooking State: PENDING_DANIELLE_CONFIRMATION' },
+  2: { badge: 'CHAPTER 02 · SRVUZ DETAILING (LIVE 757)', title: 'Six Specializations + Shine My Ride 757', body: 'Automotive, Marine, Aviation, Industrial, Fleets, and Dealerships. Protected local cash engine on smrdetailing.com (4.9★ · 307+ reviews).', code: '[757 DIRECT CREW ROUTING]\nPrimary Engine: Shine My Ride 757 (smrdetailing.com)' },
+  3: { badge: 'CHAPTER 03 · PROPERTY & PLAN WAITLISTS', title: 'SRVUZ Home, Commercial & SRVUZ ONE Matcher', body: 'Flags READY_FOR_FOUNDER_GO when v_srvuz_zip_launch_readiness detects >=15 waiting customers and >=2 COI-verified partners in a ZIP.', code: "SELECT * FROM v_srvuz_zip_launch_readiness WHERE zip_code = '23451';" },
+  4: { badge: 'CHAPTER 04 · SRVUZ OS', title: 'Zero-UI SMS Loop & 5-Photo Vision QA (>=0.85)', body: 'Techs text OTW -> HERE (4 arrival photos) -> 5 finish photos. Payout unlocks at >=0.85 QA confidence and stamps /asset/N17CX.', code: "UPDATE job_assignments SET status = 'QA_APPROVED' WHERE qa_confidence_score >= 0.85;" },
+  5: { badge: 'CHAPTER 05 · SRVUZ ACADEMY', title: 'Profit Leak Calculator -> $27 Book -> $97 Toolkit -> $697 Skool', body: '100% of Book/Toolkit spend credits toward the $697 Detailing Domination Skool Accelerator (Growth Boost = OFF).', code: '[LIVE SQUARE CATALOG FLOORS]\nSilver Full $230/$250/$290/$350 | Gold Full $450/$525/$600/$675 | Platinum Full $700/$800/$900/$1000' },
+  6: { badge: 'CHAPTER 06 · PRIVATE SRVUZ NETWORK', title: 'Atomic Overflow Dispatch (Zero Public Directories)', body: 'Overflow automotive jobs route privately via SELECT ... FOR UPDATE single-winner locks at fixed payouts ($150 baseline).', code: 'SELECT * FROM private_job_offers WHERE offer_id = $1 FOR UPDATE;' }
+};
+let SELECTED_PKG = 'Silver Full Detail ($230–$350)', PHOTO_GATE = false, SELECTED_SPEC = 'AUTO';
+const $id = s => document.getElementById(s);
+function toggleBrandLockup() {
+  const m = $id('brandMark'), l = $id('lockupLabel');
+  const framed = m.classList.toggle('framed');
+  l.textContent = framed ? 'LOCKUP 02 · FRAMED S (TAP TO SWITCH)' : 'LOCKUP 01 · CORE S (TAP TO SWITCH)';
+}
+function selectSpec(spec, el) {
+  SELECTED_SPEC = spec;
+  document.querySelectorAll('.spec-tab').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  const titles = {
+    AUTO: 'Automotive Mobile Detailing & System X Ceramic (Hampton Roads)',
+    MARINE: 'Marine Vessel Detailing (Direct Crew · Quote Required)',
+    AVIATION: 'Aviation / SF50 Exterior Care (Direct Crew · Quote Required)',
+    INDUSTRIAL: 'Industrial Equipment Detailing (Direct Crew · Quote Required)',
+    FLEETS: 'Commercial Fleet Managed SLA (Recurring · Quote Required)',
+    DEALERSHIPS: 'Dealership Reconditioning Pipelines (Volume SLA)'
+  };
+  const t = $id('specTitle'); if (t) t.textContent = titles[spec] || titles.AUTO;
+}
+function selectAutoPkg(name, gated, el) {
+  SELECTED_PKG = name; PHOTO_GATE = !!gated;
+  document.querySelectorAll('#autoPkgGrid .pkg-card').forEach(c => c.classList.remove('selected'));
+  if (el) el.classList.add('selected');
+  const n = $id('photoRuleNotice');
+  const block = $id('photoUploadBlock');
+  if (block) block.style.display = gated ? 'block' : 'none';
+  if (!n) return;
+  if (gated) {
+    n.style.color = 'var(--glow)';
+    n.textContent = '⚠ Condition-Gated: 3 sunlit close-up photos required before pricing is confirmed.';
+  } else {
+    n.style.color = '#6EE7B7';
+    n.textContent = '✓ Standard Package Selected: Upfront 3-photo requirement bypassed.';
+  }
+}
+function updateTapeSplit(v) {
+  const n = Number(v);
+  const b = $id('tapeVisualBar');
+  if (b) b.style.background = 'linear-gradient(90deg,#1E293B 0%,#0F172A ' + (n - 2) + '%,#1D4ED8 ' + (n - 2) + '%,#1D4ED8 ' + (n + 2) + '%,#064E3B ' + (n + 2) + '%,#047857 100%)';
+  const l = $id('tapeStatusLbl');
+  if (l) l.textContent = (n === 50) ? 'Mid Split View' : (n + '% Split View');
+}
+function submitLiveDetailing(e) {
+  e.preventDefault();
+  const g = k => ($id(k) || {}).value || '';
+  const r = $id('detailReceipt');
+  const zipHook = ($id('d_HomeWaitlistHook') || {}).checked;
+  r.style.display = 'block';
+  r.textContent = 'STATUS: PENDING_DANIELLE_CONFIRMATION\nSpec: ' + SELECTED_SPEC + '\nPackage: ' + SELECTED_PKG + '\nName: ' + g('d_name') + '\nPhone: ' + g('d_phone') + '\nEmail: ' + g('d_email') + '\nAsset/Day: ' + g('d_asset') + (PHOTO_GATE ? '\nNext: text 3 sunlit close-up photos to 757-689-9821' : '') + (zipHook ? '\nHome/ONE ZIP alerts: opted in' : '') + '\nShine My Ride 757 will confirm by SMS. Questions: 757-689-9821';
+}
+function activateChapter(n, el) {
+  document.querySelectorAll('.chapter-card').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  const d = CHAPTER_DATA[n]; if (!d) return;
+  $id('stageBadge').textContent = d.badge;
+  $id('stageTitle').textContent = d.title;
+  $id('stageBody').textContent = d.body;
+  $id('stageCodeBox').textContent = d.code;
+}
+function openWaitlistModal(code) {
+  $id('wl_branch').value = code;
+  $id('wlTitle').textContent = 'Join the ' + code.replace(/_/g, ' ') + ' waitlist';
+  $id('waitlistReceipt').style.display = 'none';
+  $id('waitlistModal').classList.add('open');
+}
+function closeWaitlistModal() {
+  $id('waitlistModal').classList.remove('open');
+}
+async function submitWaitlist(e) {
+  e.preventDefault();
+  const zip = $id('wl_zip').value.trim();
+  const r = $id('waitlistReceipt');
+  if (!/^\d{5}$/.test(zip)) { r.style.display = 'block'; r.textContent = 'Enter a 5-digit ZIP.'; return; }
+  const body = {
+    branch_code: $id('wl_branch').value,
+    full_name: $id('wl_name').value.trim(),
+    zip_code: zip,
+    phone: $id('wl_phone').value.trim(),
+    email: $id('wl_email').value.trim(),
+    notify_sms: $id('wl_sms').checked,
+    notify_email: $id('wl_emailopt').checked,
+    in_757: HR_ZIPS.includes(zip)
+  };
+  let res = null;
+  try {
+    const x = await fetch('/api/waitlist/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (x.ok) res = await x.json();
+  } catch (err) {}
+  if (!res) res = { status: 'WAITLIST_LOCKED', staged_only: true, sending_enabled: false };
+  r.style.display = 'block';
+  r.textContent = '✓ ' + (res.status || 'WAITLIST_LOCKED') + ' · sending_enabled: ' + String(res.sending_enabled === true) + (res.staged_only ? ' · staged (API offline)' : '') + (body.in_757 ? '\nYou are in Hampton Roads — live detailing now: 757-689-9821' : '');
+}
+function evaluateHeroZip() {
+  const zip = ($id('heroZip').value || '').trim();
+  const fb = $id('heroZipFeedback');
+  if (!/^\d{5}$/.test(zip)) { fb.textContent = 'Enter a valid 5-digit ZIP.'; return; }
+  if (HR_ZIPS.includes(zip)) {
+    fb.style.color = '#6EE7B7';
+    fb.textContent = '✓ ZIP ' + zip + ' is LIVE for SRVUZ Detailing in Hampton Roads (Shine My Ride 757). Scroll to book, or join Home / ONE alerts below.';
+    document.getElementById('detailing-live')?.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    fb.style.color = 'var(--amber)';
+    fb.textContent = 'ZIP ' + zip + ' is outside live 757 coverage today — join the priority SMS/Email waitlist for Home, Commercial, or SRVUZ ONE.';
+    openWaitlistModal('SRVUZ_ONE');
+  }
+}
+async function loadClusters() {
+  try {
+    const x = await fetch('/api/waitlist/clusters');
+    if (!x.ok) return;
+    const d = await x.json();
+    const list = Array.isArray(d) ? d : (d.clusters || []);
+    if (list.length) $id('clusterNote').textContent = list.length + ' ZIP clusters forming · unlock at 15+ waiting + 2+ COI-verified partners';
+  } catch (err) {}
+}
+activateChapter(1, document.querySelector('.chapter-card'));
+loadClusters();
+</script>
+</body>
+</html>
