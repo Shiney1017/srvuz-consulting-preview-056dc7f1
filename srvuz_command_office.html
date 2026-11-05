@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SRVUZ Command Office (v23.0) // 5-Level Executive Hub (STAGING)</title>
+<style>
+:root{--bg-deep:#070C15;--bg-midnight-navy:#101B2B;--card-surface:#132238;--border-subtle:#1E3454;--action-blue:#1575D4;--action-blue-hover:#3B9EFF;--emerald-verified:#10B981;--gold-accent:#F5A623;--danger-alert:#EF4444;--text-primary:#F8FAFC;--text-muted:#9FADC0;
+--bg-navy:var(--bg-midnight-navy);--bg-card:var(--card-surface);--border:var(--border-subtle);--blue:var(--action-blue);--blue-bright:var(--action-blue-hover);--emerald:var(--emerald-verified);--gold:var(--gold-accent);--danger:var(--danger-alert);--text:var(--text-primary);--muted:var(--text-muted);
+--font:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-deep);color:var(--text);font-family:var(--font);line-height:1.55;font-weight:400}
+h1,h2,h3{font-weight:800}
+.topbar{background:rgba(16,27,43,.96);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:12px}
+.brand{font-weight:900;letter-spacing:.05em}.brand span{color:var(--blue-bright)}
+.portal-nav{display:flex;gap:6px;flex-wrap:wrap;width:100%;order:3}.portal-nav a{color:var(--blue-bright);font-size:.78rem;font-weight:700;text-decoration:none;padding:4px 8px;border:1px solid var(--border);border-radius:5px}.portal-nav a[aria-current]{color:var(--text);border-color:var(--blue)}
+.nav-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab-btn{background:var(--bg-deep);border:1px solid var(--border);color:var(--muted);padding:8px 14px;border-radius:6px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit}
+.tab-btn.active{background:var(--blue);border-color:var(--blue-bright);color:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:28px 24px}
+.panel{display:none}.panel.active{display:block}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-bottom:24px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px;margin-bottom:24px}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:26px;min-width:0;overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:4px;margin-bottom:8px;border:1px solid var(--border);color:var(--muted)}
+.t-ok{color:var(--emerald);border-color:var(--emerald)}.t-draft{color:var(--gold);border-color:var(--gold)}.t-bad{color:var(--danger);border-color:var(--danger)}
+.kv{font-size:1.4rem;font-weight:800;margin:6px 0}.pending{color:var(--muted);font-size:.95rem;font-weight:700}
+.muted{color:var(--muted);font-size:.85rem}
+.sub{color:var(--muted);margin:4px 0 20px}
+input,textarea,select{width:100%;background:var(--bg-deep);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:10px;font-family:inherit;font-size:.9rem;margin:4px 0 12px}
+button.btn{background:var(--bg-deep);border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:6px;font-weight:700;cursor:pointer;font-family:inherit}
+button.cta{background:var(--blue);border-color:var(--blue-bright);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:.85rem}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+.tablewrap{overflow-x:auto}
+code,pre{font-family:var(--mono);font-size:.8rem}
+.sw{display:flex;align-items:center;gap:10px;margin:6px 0}.sw i{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);flex:none}
+.prompt{display:flex;gap:10px;align-items:flex-start;margin:10px 0}.prompt p{flex:1;font-size:.88rem}
+#xray{display:none;white-space:pre-wrap;background:var(--bg-deep);border:1px dashed var(--blue);padding:14px;border-radius:8px;max-height:360px;overflow:auto;margin-top:12px}
+body.xray-on #xray{display:block}
+body.xray-on .card{outline:1px dashed rgba(59,158,255,.5)}
+.slide{background:var(--bg-navy);border:1px solid var(--border);border-radius:12px;min-height:300px;padding:30px;display:flex;flex-direction:column;justify-content:center}
+.slide h2{font-size:1.5rem;margin-bottom:12px}.slide ul{margin-left:20px}.slide img{max-height:80px;max-width:220px;margin-bottom:16px;object-fit:contain}
+.deckbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.notes{background:var(--bg-deep);border-left:3px solid var(--gold);padding:12px;margin-top:12px;font-size:.88rem;color:var(--muted)}
+.sop label{display:flex;gap:10px;align-items:flex-start;margin:8px 0}.sop input[type=checkbox]{width:auto;margin-top:4px}
+.sop .row{display:flex;gap:8px;align-items:center}.sop .row input[type=text]{margin:0}
+.sample{color:var(--gold);font-weight:800}
+@media(max-width:600px){.wrap{padding:18px 12px}.card{padding:18px}.topbar{padding:12px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="brand">SRVUZ <span>COMMAND OFFICE</span> · v23 · STAGING</div>
+<nav class="portal-nav" aria-label="Portals"><a href="./srvuz_command_office.html" aria-current="page">Command Office</a><a href="./ai_proof_scaling_page.html">AI-Proof Scaling</a><a href="./srvuz_ai_consulting_hq.html">Consulting HQ</a><a href="./govcon_approval_portal.html">GovCon Portal</a></nav>
+<nav class="nav-tabs" role="tablist">
+<button class="tab-btn active" data-tab="p-kpi">1 · KPIs</button>
+<button class="tab-btn" data-tab="p-repo">2 · Artifacts</button>
+<button class="tab-btn" data-tab="p-design">3 · Design</button>
+<button class="tab-btn" data-tab="p-deck">4 · Deck</button>
+<button class="tab-btn" data-tab="p-sop">5 · SOPs</button>
+</nav>
+</header>
+<main class="wrap">
+
+<section class="panel active" id="p-kpi">
+<h1>Lag vs Lead Dashboard</h1>
+<p class="sub">No numbers are invented. Values show only when a real staged file supplies them.</p>
+<h3 style="margin-bottom:10px">Lag measures</h3>
+<div class="grid-4">
+<div class="card"><span class="tag">LAG · TARGET</span><div class="kv">$100,000 / mo</div><div class="muted">Owner target (goal, not a result)</div></div>
+<div class="card"><span class="tag">LAG · NET COLLECTIONS</span><div class="pending">no data yet / source pending</div><div class="muted">Excludes tips and tax. Source: Square + Stripe ledger (not connected here)</div></div>
+<div class="card"><span class="tag">LAG · CONTRIBUTION MARGIN %</span><div class="pending">no data yet / source pending</div><div class="muted">Tech split: 30% lead / 25% detailer</div></div>
+</div>
+<h3 style="margin-bottom:10px">Lead measures</h3>
+<div class="grid-4" id="leadGrid"></div>
+</section>
+
+<section class="panel" id="p-repo">
+<h1>Artifact Repository</h1>
+<p class="sub">Status tags come from STATE_LEDGER.json at build time. Missing files are marked MISSING.</p>
+<input id="repoSearch" type="search" placeholder="Search artifacts, paths, status…" aria-label="Search artifacts" />
+<div class="card tablewrap"><table id="repoTable"><thead><tr><th>Artifact</th><th>Status</th><th>Path / ledger source</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section class="panel" id="p-design">
+<h1>Design Tokens</h1>
+<p class="sub">SRVUZ_SECTION_16_DESIGN_SYSTEM_v23 · Higgsfield prompts are copy-only (no image generation here).</p>
+<div class="grid-2">
+<div class="card"><span class="tag">COLOR TOKENS</span><div id="swatches"></div></div>
+<div class="card"><span class="tag">HIGGSFIELD TEXTURE PACK PROMPTS</span><div id="prompts"></div>
+<button class="btn" id="xrayBtn" style="margin-top:12px">Toggle X-Ray</button>
+<pre id="xray"></pre></div>
+</div>
+</section>
+
+<section class="panel" id="p-deck">
+<h1>Client Deck Builder</h1>
+<p class="sub">Runs in the browser only. No network calls; the logo is just an image URL.</p>
+<div class="grid-2">
+<div class="card">
+<label>Client name<input id="dClient" placeholder="e.g. prospect company name" /></label>
+<label>Domain<input id="dDomain" placeholder="e.g. prospect-domain.com" /></label>
+<label>Logo image URL<input id="dLogo" placeholder="https://…/logo.png" /></label>
+<label>Offer<select id="dOffer"><option value="dfy">$4,500 DFY (M1 / M2 / M3)</option><option value="fleet">Fleet contract: custom quote</option></select></label>
+<label>Call transcript<textarea id="dTranscript" rows="6" placeholder="Paste the discovery call transcript…"></textarea></label>
+<button class="btn" id="buildBtn">Build 5-slide deck</button>
+</div>
+<div class="card">
+<div class="deckbar"><button class="btn" id="prevBtn">◀ Prev</button><span id="slideNum" class="muted">Slide 1 / 5</span><button class="btn" id="nextBtn">Next ▶</button><span id="callTimer" class="muted">⏱ Call Timer: 00:00</span><button class="btn" id="timerBtn">Start timer</button><button class="btn" id="presentBtn">Present</button></div>
+<div class="slide" id="slideView"></div>
+<div class="notes" id="slideNotes"></div>
+<div class="muted" id="wordCount"></div>
+</div>
+</div>
+</section>
+
+<section class="panel" id="p-sop">
+<h1>SOP Checklists</h1>
+<p class="sub">Editable. Saved in this browser (localStorage). <button class="btn" id="sopReset">Reset to defaults</button></p>
+<div class="grid-2" id="sopGrid"></div>
+</section>
+</main>
+
+<script>
+const DATA = {"tokens": {"system_name": "SRVUZ_SECTION_16_DESIGN_SYSTEM_v23", "color_tokens": {"bg_deep": "#070C15", "bg_midnight_navy": "#101B2B", "card_surface": "#132238", "border_subtle": "#1E3454", "action_blue": "#1575D4", "action_blue_hover": "#3B9EFF", "emerald_verified": "#10B981", "gold_accent": "#F5A623", "danger_alert": "#EF4444", "text_primary": "#F8FAFC", "text_muted": "#9FADC0"}, "typography": {"font_family": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", "heading_weight": 800, "body_weight": 400, "mono_family": "'JetBrains Mono', monospace"}, "power_design_20_rules": {"max_cta_per_viewport": 1, "max_words_per_slide": 45, "card_padding_px": 26, "contrast_floor": "WCAG_AAA_DARK", "client_logo_on_cover_slide": true, "xray_architecture_toggle": true}, "higgsfield_texture_pack_prompts": ["Matte midnight navy brushed anodized aluminum texture with subtle #1575D4 edge refraction, 4K, zero text, no watermark", "Dark obsidian carbon-weave backdrop with amber hangar rim light and water-bead bokeh, 85mm f/2.8, zero text", "Stacked isometric glassmorphism telemetry cards in #1575D4 and #10B981 over #070C15, zero lettering"]}, "artifacts": [{"name": "028_srvuz_v22_core.sql", "path": "/workspace/first-reply/db/migrations/postgres/028_srvuz_v22_core.sql", "tag": "VERIFIED STAGING", "src": "TASK-01: DONE - VERIFIED STAGING (local Postgres)"}, {"name": "029_messaging_ledger.sql", "path": "/workspace/first-reply/db/migrations/postgres/029_messaging_ledger.sql", "tag": "VERIFIED STAGING", "src": "TASK-01: DONE - VERIFIED STAGING (local Postgres)"}, {"name": "optical_underwriting.js", "path": "/workspace/first-reply/src/services/v22/optical_underwriting.js", "tag": "VERIFIED STAGING", "src": "TASK-02: DONE - VERIFIED STAGING (local tests 12/12)"}, {"name": "vision_qa.js", "path": "/workspace/first-reply/src/services/v22/vision_qa.js", "tag": "VERIFIED STAGING", "src": "TASK-02: DONE - VERIFIED STAGING (local tests 12/12)"}, {"name": "messaging_adapter.js", "path": "/workspace/first-reply/src/services/v22/messaging_adapter.js", "tag": "VERIFIED STAGING", "src": "TASK-02: DONE - VERIFIED STAGING (local tests 12/12)"}, {"name": "billing_reconciler.js", "path": "/workspace/first-reply/src/services/v22/billing_reconciler.js", "tag": "VERIFIED STAGING", "src": "TASK-12 v23.1 cohesion sync: DONE - VERIFIED STAGING (local Postgres + SQLite suites, headless Chromium)"}, {"name": "eval_runner.js", "path": "/workspace/first-reply/scripts/srvuz-v22/eval_runner.js", "tag": "VERIFIED STAGING", "src": "TASK-03: DONE - VERIFIED STAGING (mean 10.00/10)"}, {"name": "govcon_dual_desk.py", "path": "/workspace/first-reply/scripts/srvuz-v22/govcon_dual_desk.py", "tag": "VERIFIED STAGING", "src": "TASK-04: DONE - VERIFIED STAGING (SAMPLE data only)"}, {"name": "ai_proof_scaling_page.html", "path": "/workspace/first-reply/staging-srvuz-v22/ai_proof_scaling_page.html", "tag": "VERIFIED STAGING", "src": "TASK-05: DONE - VERIFIED STAGING (static file)"}, {"name": "srvuz_ai_consulting_hq.html", "path": "/workspace/first-reply/staging-srvuz-v22/srvuz_ai_consulting_hq.html", "tag": "VERIFIED STAGING", "src": "TASK-06: DONE - VERIFIED STAGING (static file, not browser-tested)"}, {"name": "govcon_approval_portal.html", "path": "/workspace/first-reply/staging-srvuz-v22/govcon_approval_portal.html", "tag": "VERIFIED STAGING", "src": "TASK-04: DONE - VERIFIED STAGING (SAMPLE data only)"}, {"name": "srvuz_command_office.html", "path": "/workspace/first-reply/staging-srvuz-v22/srvuz_command_office.html", "tag": "VERIFIED STAGING", "src": "TASK-09 v23 command office: DONE - VERIFIED STAGING (local commit, headless Chromium)"}, {"name": "generate_client_deck.py", "path": "/workspace/first-reply/scripts/srvuz-v22/generate_client_deck.py", "tag": "VERIFIED STAGING", "src": "TASK-09 v23 command office: DONE - VERIFIED STAGING (local commit, headless Chromium)"}, {"name": "srvuz_design_system.json", "path": "/workspace/first-reply/config/srvuz_design_system.json", "tag": "VERIFIED STAGING", "src": "TASK-08 v23 design system: DONE - VERIFIED STAGING (local commit 228baf6; text_muted updated in v23.1)"}], "packets": {"count": 2, "sample": true, "submitted": 0}};
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
+  $('#' + b.dataset.tab).classList.add('active'); b.classList.add('active');
+}));
+
+// 1. Lead KPIs
+const P = DATA.packets;
+const lead = [
+  ['<10s SMS intake rate', null, 'messaging ledger (Postgres) not connected'],
+  ['3-photo optical quotes sent', null, 'optical_underwriting events not connected'],
+  ['R.A.C.E. audits', null, 'audit log not staged'],
+  ['YouTube videos / Shorts posted', null, 'YouTube channel data not connected'],
+  ['Govcon set-aside packets staged', P.count, 'staging/staged_govcon_bid_packets.json' + (P.sample ? ' · SAMPLE DATA, not real solicitations' : '') + ' · submitted: ' + P.submitted],
+  ['06:30 AM Skool RPA sync', null, 'sync log not staged']
+];
+$('#leadGrid').innerHTML = lead.map(([k, v, src]) => `<div class="card"><span class="tag">LEAD</span><h3 style="font-size:1rem">${esc(k)}</h3>${v === null ? '<div class="pending">no data yet / source pending</div>' : `<div class="kv">${v}${P.sample ? ' <span class="sample">SAMPLE</span>' : ''}</div>`}<div class="muted">${esc(src)}</div></div>`).join('');
+
+// 2. Repo
+const tagClass = t => t === 'VERIFIED STAGING' ? 't-ok' : t === 'DRAFT' ? 't-draft' : 't-bad';
+$('#repoTable tbody').innerHTML = DATA.artifacts.map(a => `<tr><td><b>${esc(a.name)}</b></td><td><span class="tag ${tagClass(a.tag)}">${esc(a.tag)}</span></td><td><a style="color:var(--blue-bright)" href="file://${esc(a.path)}">${esc(a.path)}</a><div class="muted">${esc(a.src)}</div></td></tr>`).join('');
+$('#repoSearch').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  document.querySelectorAll('#repoTable tbody tr').forEach(r => r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none');
+});
+
+// 3. Design
+const T = DATA.tokens;
+$('#swatches').innerHTML = Object.entries(T.color_tokens).map(([k, v]) => `<div class="sw"><i style="background:${v}"></i><code>${k}</code><span class="muted">${v}</span></div>`).join('');
+$('#prompts').innerHTML = T.higgsfield_texture_pack_prompts.map((p, i) => `<div class="prompt"><p>${i + 1}. ${esc(p)}</p><button class="btn" data-copy="${i}">Copy</button></div>`).join('');
+document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+  const txt = T.higgsfield_texture_pack_prompts[+b.dataset.copy];
+  try { await navigator.clipboard.writeText(txt); } catch (e) {
+    const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (_) {} ta.remove();
+  }
+  b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1200);
+}));
+function renderXray() {
+  const css = getComputedStyle(document.documentElement);
+  const vars = Object.keys(T.color_tokens).map(k => `--${k.replace(/_/g, '-')}: ${css.getPropertyValue('--' + k.replace(/_/g, '-')).trim()};`).join('\n');
+  $('#xray').textContent = '/* CSS state */\n:root {\n' + vars + '\n}\n\n/* JSON state */\n' + JSON.stringify({ design_system: T, deck: { slide: curSlide + 1, offer: $('#dOffer').value, timer_running: !!timerId }, sop: loadSop() }, null, 2);
+}
+$('#xrayBtn').addEventListener('click', () => { document.body.classList.toggle('xray-on'); renderXray(); });
+
+// 4. Deck engine
+const RACE = {
+  Reach: ['ads', 'seo', 'leads', 'traffic', 'visibility', 'google', 'marketing', 'youtube'],
+  Act: ['missed call', 'voicemail', 'after hours', 'slow reply', 'response', 'callback', 'no answer'],
+  Convert: ['quote', 'pricing', 'estimate', 'close', 'deposit', 'booking', 'no-show'],
+  Engage: ['review', 'repeat', 'retention', 'follow up', 'membership', 'referral']
+};
+function diagnose(t) {
+  t = (t || '').toLowerCase();
+  const s = Object.fromEntries(Object.entries(RACE).map(([k, w]) => [k, w.filter(x => t.includes(x))]));
+  const top = Object.entries(s).sort((a, b) => b[1].length - a[1].length)[0];
+  return top[1].length ? { stage: top[0], hits: top[1] } : { stage: null, hits: [] };
+}
+let slides = [], curSlide = 0;
+function buildDeck() {
+  const name = $('#dClient').value.trim() || '[Client name]';
+  const dom = $('#dDomain').value.trim() || '[domain]';
+  const logo = $('#dLogo').value.trim();
+  const d = diagnose($('#dTranscript').value);
+  const fleet = $('#dOffer').value === 'fleet';
+  slides = [
+    { h: `${name} × SRVUZ`, logo, b: [dom, 'Command architecture proposal'], n: 'Open with their logo. Confirm goals in their words. Keep it under one minute.' },
+    { h: 'R.A.C.E. bottleneck', b: d.stage ? [`Tightest stage: ${d.stage}`, `Signals heard: ${d.hits.join(', ')}`] : ['No keywords matched yet', 'Paste a transcript to map Reach, Act, Convert, Engage'], n: d.stage ? `Read back the exact phrases (${d.hits.join(', ')}). Ask what this costs them weekly.` : 'Transcript empty or no keyword match. Ask discovery questions first.' },
+    { h: 'How the fix works', b: ['Under 10s SMS intake', '3-photo optical quote', '5-photo vision QA at 0.85 or higher'], n: 'Show the flow, not the tech. Tie each step to the bottleneck on slide 2.' },
+    { h: 'Rollout: M1 / M2 / M3', b: ['M1: intake and quoting live', 'M2: QA and billing lanes', 'M3: tuning with 10-run evals'], n: 'Each milestone needs their written GO before the next one starts.' },
+    { h: 'Terms', b: fleet ? ['Fleet contract', 'Custom quote after site review'] : ['$4,500 done-for-you', 'Paid across M1 / M2 / M3'], cta: 'Approve Milestone 1', n: 'One ask only. Stop talking after the ask.' }
+  ];
+  curSlide = 0; renderSlide();
+}
+function words(s) { return [s.h, ...(s.b || []), s.cta || ''].join(' ').split(/\s+/).filter(Boolean).length; }
+function renderSlide() {
+  if (!slides.length) buildDeck();
+  const s = slides[curSlide];
+  const img = s.logo ? `<img src="${esc(s.logo)}" alt="Client logo" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : (curSlide === 0 ? '<div class="muted" style="margin-bottom:12px">[logo appears here]</div>' : '');
+  $('#slideView').innerHTML = `${img}<h2>${esc(s.h)}</h2><ul>${s.b.map(x => `<li>${esc(x)}</li>`).join('')}</ul>${s.cta ? `<div style="margin-top:16px"><button class="btn cta" type="button">${esc(s.cta)}</button></div>` : ''}`;
+  $('#slideNotes').textContent = 'Speaker notes: ' + s.n;
+  const w = words(s);
+  $('#wordCount').textContent = `${w} words (max ${T.power_design_20_rules.max_words_per_slide})` + (w > T.power_design_20_rules.max_words_per_slide ? ' · OVER LIMIT' : '');
+  $('#slideNum').textContent = `Slide ${curSlide + 1} / ${slides.length}`;
+  if (document.body.classList.contains('xray-on')) renderXray();
+}
+function prevSlide() { if (curSlide > 0) { curSlide--; renderSlide(); } }
+function nextSlide() { if (curSlide < slides.length - 1) { curSlide++; renderSlide(); } }
+$('#buildBtn').addEventListener('click', buildDeck);
+$('#prevBtn').addEventListener('click', prevSlide);
+$('#nextBtn').addEventListener('click', nextSlide);
+document.addEventListener('keydown', e => { if (!$('#p-deck').classList.contains('active') || /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return; if (e.key === 'ArrowRight') nextSlide(); if (e.key === 'ArrowLeft') prevSlide(); });
+$('#presentBtn').addEventListener('click', () => { const el = $('#slideView'); if (el.requestFullscreen) el.requestFullscreen().catch(() => {}); });
+let sec = 0, timerId = null;
+$('#timerBtn').addEventListener('click', () => {
+  if (timerId) { clearInterval(timerId); timerId = null; $('#timerBtn').textContent = 'Start timer'; return; }
+  timerId = setInterval(() => {
+    sec++;
+    const m = String(Math.floor(sec / 60)).padStart(2, '0'), s = String(sec % 60).padStart(2, '0');
+    $('#callTimer').textContent = `⏱ Call Timer: ${m}:${s}`;
+  }, 1000);
+  $('#timerBtn').textContent = 'Pause timer';
+});
+renderSlide();
+
+// 5. SOPs
+const SOP_KEY = 'srvuz_sop_v23';
+const SOP_DEFAULT = [
+  { t: '4-Corner Arrival Gate', items: ['Tech taps HERE only after 4 corner photos are captured', 'Job unlocks only after HERE is accepted', 'Missing corner photo: job stays locked'] },
+  { t: '5-Photo Vision QA (score of 0.85 or higher)', items: ['All 5 photos uploaded (4 of 5 holds payout)', 'Score at or above 0.85 unrounded to pass', 'Vision error goes to QA_HOLD', 'Balance capture needs a human after pass'] },
+  { t: '3:11 PM Danielle Confirmation Rule', items: ['25% deposit holds the slot as HOLD, unconfirmed', '75% balance captured only after QA of 0.85 or higher', 'Danielle confirms the final date in writing', 'No booking confirmation text until she confirms'] },
+  { t: 'Three-Lane Billing Separation', items: ['Lane 1: SMR 757 retail on Square', 'Lane 2: SaaS / DFY on Stripe', 'Lane 3: books / toolkits on Gumroad', 'Tech split: 30% lead / 25% detailer'] }
+].map(g => ({ t: g.t, items: g.items.map(x => ({ x, c: false })) }));
+function loadSop() { try { return JSON.parse(localStorage.getItem(SOP_KEY)) || JSON.parse(JSON.stringify(SOP_DEFAULT)); } catch (e) { return JSON.parse(JSON.stringify(SOP_DEFAULT)); } }
+function saveSop(d) { try { localStorage.setItem(SOP_KEY, JSON.stringify(d)); } catch (e) {} }
+function renderSop() {
+  const d = loadSop();
+  $('#sopGrid').innerHTML = d.map((g, gi) => `<div class="card sop"><span class="tag">SOP ${gi + 1}</span><h3 style="margin-bottom:8px">${esc(g.t)}</h3>${g.items.map((it, ii) => `<label><input type="checkbox" data-g="${gi}" data-i="${ii}" ${it.c ? 'checked' : ''}><input type="text" data-g="${gi}" data-i="${ii}" value="${esc(it.x)}" aria-label="SOP item"></label>`).join('')}<div class="row"><input type="text" placeholder="Add item…" data-add="${gi}"><button class="btn" data-addbtn="${gi}">Add</button></div></div>`).join('');
+}
+$('#sopGrid').addEventListener('change', e => {
+  const t = e.target, d = loadSop();
+  if (t.dataset.g === undefined) return;
+  const it = d[t.dataset.g].items[t.dataset.i];
+  if (t.type === 'checkbox') it.c = t.checked; else it.x = t.value;
+  saveSop(d);
+});
+$('#sopGrid').addEventListener('click', e => {
+  const g = e.target.dataset.addbtn; if (g === undefined) return;
+  const inp = document.querySelector(`[data-add="${g}"]`); if (!inp.value.trim()) return;
+  const d = loadSop(); d[g].items.push({ x: inp.value.trim(), c: false }); saveSop(d); renderSop();
+});
+$('#sopReset').addEventListener('click', () => { localStorage.removeItem(SOP_KEY); renderSop(); });
+renderSop();
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SRVUZ OS - GovCon Content Approval Portal (DEMO)</title>
+<style>:root{--bg:#0B1320;--card:#101B2B;--border:#1E2F47;--blue:#1575D4;--emerald:#10B981;--amber:#F5A623;--text:#F8FAFC;--muted:#94A3B8}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,sans-serif}body{background:var(--bg);color:var(--text);padding:24px}.wrap{max-width:1040px;margin:0 auto}
+.header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--border);margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.badge{background:rgba(245,166,35,.15);color:var(--amber);border:1px solid var(--amber);padding:4px 10px;border-radius:99px;font-size:.78rem;font-weight:700}
+.gate-box{background:var(--card);border:1px solid var(--border);padding:20px;border-radius:10px;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}.post-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+.status-pill{display:inline-block;font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:4px;margin-bottom:10px}.st-pending{background:rgba(245,166,35,.15);color:var(--amber)}.st-approved{background:rgba(16,185,129,.15);color:var(--emerald)}.st-regen{background:rgba(21,117,212,.2);color:#60A5FA}
+.sample{background:#3b1d1d;color:#fca5a5;font-size:.7rem;font-weight:800;padding:2px 6px;border-radius:4px;margin-left:6px}
+.visual-box{background:#070C15;border:1px solid var(--border);border-radius:8px;padding:14px;margin:10px 0;font-size:.85rem;color:#CBD5E1}
+textarea{width:100%;background:#070C15;border:1px solid var(--border);color:var(--text);border-radius:6px;padding:8px;font-size:.85rem;margin-top:10px}
+.btn-row{display:flex;gap:10px;margin-top:12px}button{flex:1;padding:10px;border-radius:6px;border:none;font-weight:700;cursor:pointer}.btn-ok{background:var(--emerald);color:#052E16}.btn-rev{background:var(--blue);color:#fff}</style></head>
+<body><div class="wrap">
+<div class="header"><div><div style="font-size:.8rem;color:#60A5FA;font-weight:700">SRVUZ OS // GOVCON &amp; COMMERCIAL CONTENT PORTAL - DEMO MOCKUP</div>
+<h1 style="font-size:1.5rem;margin-top:4px">Monthly Content &amp; Asset Approval Calendar</h1></div>
+<span class="badge">DEMO - password gate &amp; FAQ DM bot in development</span></div>
+<div class="gate-box"><strong>How the finished portal is designed to work (roadmap):</strong> no asset publishes without explicit COR approval. In this demo, Approve and Reject &amp; Regenerate only change what is on screen - nothing is saved, there is no login yet, and no AI regeneration runs. All posts below are SAMPLE content.</div>
+<div class="grid" id="postGrid"></div></div>
+<script>
+const posts=[
+{date:"Nov 10 · 09:00 AM",platforms:"Instagram · Facebook · LinkedIn",status:"PENDING COR REVIEW",visual:"Graphic #01: High-contrast recruiting card - 'Built for Leadership: Apply Before the Early Action Deadline'",caption:"Ready to lead from the front? Early admission packets close this month. Tap the link in bio or DM us any questions.",note:""},
+{date:"Nov 12 · 12:00 PM",platforms:"Instagram Reel · YouTube Shorts · X",status:"PENDING COR REVIEW",visual:"Reel #01 (24s): Split-screen day-in-the-life cadence + engineering lab walkthrough.",caption:"Precision in every detail. See how our team prepares for winter operations. Reply with questions below.",note:""},
+{date:"Nov 14 · 03:00 PM",platforms:"Facebook · LinkedIn · X",status:"PENDING COR REVIEW",visual:"Graphic #02: Quarterly Community Impact & Fleet Readiness Scorecard (sample figures).",caption:"[SAMPLE METRIC - placeholder] Readiness across [N] regional assets this quarter. Thank you to our operations crew.",note:""}];
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function render(){document.getElementById("postGrid").innerHTML=posts.map((p,i)=>{const c=p.status.includes("APPROVED")?"st-approved":p.status.includes("REGEN")?"st-regen":"st-pending";
+return `<div class="post-card"><div><span class="status-pill ${c}">${p.status}</span><span class="sample">SAMPLE</span>
+<div style="font-size:.8rem;color:#94A3B8;font-weight:600">${p.date} · ${p.platforms}</div>
+<div class="visual-box"><strong>Visual Prompt / Asset:</strong><br>${esc(p.visual)}</div>
+<p style="font-size:.9rem"><strong>Caption:</strong> "${esc(p.caption)}"</p></div>
+<div><textarea id="note-${i}" rows="2" placeholder="Optional revision note">${esc(p.note)}</textarea>
+<div class="btn-row"><button class="btn-ok" onclick="approvePost(${i})">✓ Approve (demo)</button><button class="btn-rev" onclick="regenPost(${i})">↻ Reject &amp; Regenerate (demo)</button></div></div></div>`}).join("")}
+function approvePost(i){posts[i].status="APPROVED (DEMO - NOT SAVED)";render()}
+function regenPost(i){const n=document.getElementById(`note-${i}`).value.trim()||"Revise per COR guidance";posts[i].note=n;posts[i].status="REGEN REQUESTED (DEMO - NO AI RUN)";posts[i].visual=`[Demo placeholder - would regenerate from note: "${n}"]`;render()}
+render();
+</script></body></html>

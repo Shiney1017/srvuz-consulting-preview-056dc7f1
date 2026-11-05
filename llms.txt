@@ -1,0 +1,19 @@
+# SRVUZ — Managed Services & Zero-UI Operations Digital Home
+
+> SRVUZ is an accountable managed-services parent brand ("One trusted name for taking care of everything people own, from the car to the home"). Customers book a single guaranteed service outcome—never a public contractor directory or lead-resale marketplace.
+
+## 1. The Digital Home Architecture (Hallway & Single-Job Rooms)
+- **The Central Hallway (`srvuz_flagship_storefront.html`):** Proves operational legitimacy, hosts the 6-chapter interactive ecosystem scrollytelling tour, and routes visitors to dedicated single-purpose conversion rooms.
+- **Room 1 — Live 757 Detailing & Ceramic Room (`https://www.smrdetailing.com` & `757-689-9821`):** Fulfilled by our flagship local cash engine, **Shine My Ride 757** (Veteran-owned · System X Partner · 4.9 rating from 307+ Google reviews). Standard Silver/Gold details bypass upfront photo friction; Paint Correction and System X Ceramic ($1,400+) trigger Condition-Gated 3-Photo Optical Underwriting. All bookings hold in `PENDING_DANIELLE_CONFIRMATION` until confirmed in writing.
+- **Room 2 — SRVUZ Academy & Operator Value Ladder (`ai_proof_scaling_page.html`):** Solves the Two-Tech Margin Paradox for service operators via a structured Collection Point ladder:
+  - **Free Guestbook ($0):** Interactive Detailing Profit Leak Calculator + 70-page *Detailing Domination* blueprint preview.
+  - **Entry Tier ($27):** *The AI-Proof Detailing Pricing Playbook*.
+  - **Implementation Tier ($97):** *The Complete Operator Toolkit* (calculators, SOPs, scripts).
+  - **Flagship Cohort ($697):** *Detailing Domination* 6-Week Skool Accelerator (with 100% upgrade credit from the $27 and $97 tiers).
+- **Room 3 — B2B Autonomous Front-Office Consulting (`srvuz_ai_consulting_hq.html`):** Deploys a 100%-owned, self-hosted **SRVUZ OS** node ($4,500 DFY setup) featuring sub-10-second SMS triage, 3-Photo Optical Underwriting, PostgreSQL `SELECT ... FOR UPDATE` atomic scheduling, and 5-Photo Vision AI QA (`>= 0.85` confidence floor). Supports dynamic prospect personalization via `?prospect=Company&city=City`.
+- **Room 4 — Commercial Fleets, Aviation & Dealership Desk (`govcon_approval_portal.html`):** Managed SLA programs across Automotive, Marine, Aviation, Industrial Equipment, Commercial Fleets, and Dealerships, backed by Cryptographic Asset Passports (`/asset/:id`).
+
+## 2. Gated Coming Soon Divisions (Waitlist Collection Points)
+- **SRVUZ ONE (`Build Your Plan`):** Multi-service recurring plan where each asset/service line runs on its own independent cadence. (Local detailing-only membership is **The Shine Club** on `smrdetailing.com` at $149/mo standard / $99/mo continuous).
+- **SRVUZ Home & SRVUZ Commercial:** Controlled neighborhood and facility pilots that unlock only after passing all 7 operational, COI insurance, and capacity readiness gates.
+- **Private SRVUZ Network:** Exclusively private, contractor-facing overflow fulfillment module inside SRVUZ OS ($150 baseline fixed payout on standard overflow auto details, masked PII until atomic lock, mandatory COI verification). Never a public contractor directory.
