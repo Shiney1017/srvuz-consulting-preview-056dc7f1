@@ -358,7 +358,7 @@
               <small style="font-size:11px;color:#CBD5E1;">📸 <strong>3 Sunlit Close-Up Photos Required:</strong> Text 3 photos to <strong>757-689-9821</strong> on the next step.</small>
             </div>
             <label class="consent-check">
-              <input type="checkbox" id="d_HomeWaitlistHook" checked />
+              <input type="checkbox" id="d_HomeWaitlistHook" />
               <span><strong>Also alert me by SMS/Email</strong> when <strong>SRVUZ Home</strong> (Pressure Washing & Exterior Care) and <strong>SRVUZ ONE</strong> unlock in my ZIP code.</span>
             </label>
             <button type="submit" class="btn-live">Route to Shine My Ride 757 Booking Desk →</button>
@@ -429,8 +429,8 @@ Booking State: PENDING_DANIELLE_CONFIRMATION</div>
         <label class="field-lbl">ZIP Code *</label><input type="text" id="wl_zip" required pattern="\d{5}" maxlength="5" placeholder="23451" />
         <label class="field-lbl">Mobile Phone *</label><input type="tel" id="wl_phone" required placeholder="(757) 555-0199" />
         <label class="field-lbl">Email *</label><input type="email" id="wl_email" required placeholder="you@example.com" />
-        <label class="consent-check"><input type="checkbox" id="wl_sms" checked /><span>SMS Text alerts</span></label>
-        <label class="consent-check"><input type="checkbox" id="wl_emailopt" checked /><span>Email alerts</span></label>
+        <label class="consent-check"><input type="checkbox" id="wl_sms" /><span>SMS Text alerts (optional — check to opt in)</span></label>
+        <label class="consent-check"><input type="checkbox" id="wl_emailopt" /><span>Email alerts (optional — check to opt in)</span></label>
         <button type="submit" class="btn-live">Lock my priority spot →</button>
       </form>
       <div class="receipt-box" id="waitlistReceipt"></div>
@@ -523,6 +523,7 @@ async function submitWaitlist(e) {
   const zip = $id('wl_zip').value.trim();
   const r = $id('waitlistReceipt');
   if (!/^\d{5}$/.test(zip)) { r.style.display = 'block'; r.textContent = 'Enter a 5-digit ZIP.'; return; }
+  if (!$id('wl_sms').checked && !$id('wl_emailopt').checked) { r.style.display = 'block'; r.textContent = 'Check SMS and/or Email alerts to opt in (nothing is pre-checked).'; return; }
   const body = {
     branch_code: $id('wl_branch').value,
     full_name: $id('wl_name').value.trim(),
